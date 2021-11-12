@@ -1,0 +1,22 @@
+CREATE TABLE jobs (
+  id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  customer_id int(11) UNSIGNED NOT NULL comment '顧客ID',
+  store_id int(11) UNSIGNED NOT NULL comment '受付店舗ID',
+  driver_id int(11) default NULL comment '担当ドライバーID',
+  influxe_id int(11) default NULL comment '流入ID',
+  name varchar(255) NOT NULL comment '案件名',
+  description text default NULL comment '依頼内容',
+  description_note text default NULL comment '内容備考',
+  accept_type varchar(255) NOT NULL comment '受け付け種別（電話、メール、など）',
+  date_of_visit datetime NOT NULL comment '訪問日（予定日、実際の訪問日は成果に記録）',
+  estimated_amount int(11) UNSIGNED NOT NULL comment '見積もり金額（実際の金額は成果に記録）',
+  note text default NULL comment '備考',
+  call_status varchar(255) NOT NULL comment '通話状態（未通話、通話済み、など）',
+  call_note text default NULL comment 'コール時の備考欄',
+  hope_date text default NULL comment '作業希望日(複数希望あるため自由入力)',
+  note_2 text default NULL comment '担当確認後(2)',
+  note_3 text default NULL comment '再度担当TEL(3)',
+  created  datetime NOT NULL,
+  modified datetime NOT NULL,
+  PRIMARY KEY (id)
+);
